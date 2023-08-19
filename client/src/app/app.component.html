@@ -1,3 +1,11 @@
-<div>
-  <app-alert></app-alert>
+<div class="container">
+  <div class="header">
+    <app-header></app-header>
+    <app-menu (toggleEdit)="toggleEditMode()"></app-menu>
+  </div>
+  <div class="body">
+    <app-student-list></app-student-list>
+    <app-student-details [student]="student" [isEditing]="isEditing"></app-student-details>
+    <!-- <app-insert-student></app-insert-student> -->
+  </div>
 </div>
