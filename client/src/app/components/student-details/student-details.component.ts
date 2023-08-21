@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Student } from 'src/app/Student';
-import { StudentService } from 'src/app/services/student.service';
+import { SelectedStudentService } from 'src/app/services/selected-student.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 export class StudentDetailsComponent {
 
   student: Student | null = null;
+  newStudent: Student = {address: "", dateOfBirth: "", email: "", firstName: "", lastName: "", mobile: "", nic: ""}
   private subscription: Subscription;
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: SelectedStudentService) {
     this.subscription = this.studentService.selectedStudent$.subscribe(student => {
       this.student = student;
     });
@@ -21,6 +22,10 @@ export class StudentDetailsComponent {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.studentService.selectedStudent(null);
   }
-  @Input() isEditing: boolean = true;
+  @Input() isEditing: boolean = false;
+  @Input() isInserting: boolean = false;
+  @Input() isDeleting: boolean = false;
+
 }

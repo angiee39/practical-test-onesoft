@@ -1,54 +1,66 @@
 <div class="container">
+    <div class="text-center">
+      <img src="..." class="rounded" alt="...">
+    </div>
     <form>
-        <div class="form-group row">
-            <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="text" class="form-control" id="firstName" placeholder="Enter first name" [(ngModel)]="student!.firstName" name="firstName">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.firstName }}</p>
-            </div>
+      <div class="form-group row row-custom-css">
+        <label for="firstName" class="col-sm-4 col-form-label">First Name:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="text" class="form-control" id="firstName" placeholder="Enter first name" [(ngModel)]="student!.firstName" name="firstName">
+          <input *ngIf="!isEditing && !isInserting" type="text" class="form-control" id="firstName2" [(ngModel)]="student!.firstName" name="firstName" disabled>
+          <input *ngIf="isInserting && !isEditing" type="text" class="form-control" id="firstName3" [(ngModel)]="newStudent!.firstName" name="firstName">
         </div>
-        <div class="form-group row">
-            <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="text" class="form-control" id="lastName" placeholder="Enter last name" [(ngModel)]="student!.lastName" name="lastName">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.lastName }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="lastName" class="col-sm-4 col-form-label">Last Name:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="text" class="form-control" id="lastName" placeholder="Enter last name" [(ngModel)]="student!.lastName" name="lastName">
+          <input *ngIf="!isEditing && !isInserting" type="text" class="form-control" id="lastName2" [(ngModel)]="student!.lastName" name="lastName" disabled>
+          <input *ngIf="isInserting && !isEditing" type="text" class="form-control" id="lastName3" [(ngModel)]="newStudent!.lastName" name="lastName">
         </div>
-        <div class="form-group row">
-            <label for="mobile" class="col-sm-2 col-form-label">Mobile:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="text" class="form-control" id="mobile" placeholder="Enter mobile number" [(ngModel)]="student!.mobile" name="mobile">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.mobile }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="mobile" class="col-sm-4 col-form-label">Mobile:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="text" class="form-control" id="mobile" placeholder="Enter mobile number" [(ngModel)]="student!.mobile" name="mobile">
+          <input *ngIf="!isEditing && !isInserting" type="text" class="form-control" id="mobile2" [(ngModel)]="student!.mobile" name="mobile" disabled>
+          <input *ngIf="isInserting && !isEditing" type="text" class="form-control" id="mobile3" [(ngModel)]="newStudent!.mobile" name="mobile">
         </div>
-        <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">Email:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="student!.email" name="email">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.email }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="email" class="col-sm-4 col-form-label">Email:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="student!.email" name="email">
+          <input *ngIf="!isEditing && !isInserting" type="email" class="form-control" id="email2" [(ngModel)]="student!.email" name="email" disabled>
+          <input *ngIf="isInserting && !isEditing" type="email" class="form-control" id="email3" [(ngModel)]="newStudent!.email" name="email">
         </div>
-        <div class="form-group row">
-            <label for="nic" class="col-sm-2 col-form-label">NIC:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="text" class="form-control" id="nic" placeholder="Enter NIC" [(ngModel)]="student!.nic" name="nic">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.nic }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="nic" class="col-sm-4 col-form-label">NIC:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="text" class="form-control" id="nic" placeholder="Enter NIC" [(ngModel)]="student!.nic" name="nic">
+          <input *ngIf="!isEditing && !isInserting" type="text" class="form-control" id="nic2" [(ngModel)]="student!.nic" name="nic" disabled>
+          <input *ngIf="isInserting && !isEditing" type="text" class="form-control" id="nic3" [(ngModel)]="newStudent!.nic" name="nic">
         </div>
-        <div class="form-group row">
-            <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of Birth:</label>
-            <div class="col-sm-10">
-                <input *ngIf="isEditing" type="date" class="form-control" id="dateOfBirth" [(ngModel)]="student!.dateOfBirth" name="dateOfBirth">
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.dateOfBirth }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="dateOfBirth" class="col-sm-4 col-form-label">Date of Birth:</label>
+        <div class="col-sm-8">
+          <input *ngIf="isEditing" type="date" class="form-control" id="dateOfBirth" [(ngModel)]="student!.dateOfBirth" name="dateOfBirth">
+          <input *ngIf="!isEditing && !isInserting" type="date" class="form-control" id="dateOfBirth2" [(ngModel)]="student!.dateOfBirth" name="dateOfBirth" disabled>
+          <input *ngIf="isInserting && !isEditing" type="date" class="form-control" id="dateOfBirth3" [(ngModel)]="newStudent!.dateOfBirth" name="dateOfBirth">
         </div>
-        <div class="form-group row">
-            <label for="address" class="col-sm-2 col-form-label">Address:</label>
-            <div class="col-sm-10">
-                <textarea *ngIf="isEditing" class="form-control" id="address" rows="3" placeholder="Enter address" [(ngModel)]="student!.address" name="address"></textarea>
-                <p *ngIf="!isEditing" class="static-text">{{ student === null ? "" : student.address }}</p>
-            </div>
+      </div>
+      <div class="form-group row row-custom-css">
+        <label for="address" class="col-sm-4 col-form-label">Address:</label>
+        <div class="col-sm-8">
+          <textarea *ngIf="isEditing" class="form-control" id="address" rows="3" placeholder="Enter address" [(ngModel)]="student!.address" name="address"></textarea>
+          <textarea *ngIf="!isEditing && !isInserting" class="form-control" id="address2" rows="3" placeholder="Enter address" [(ngModel)]="student!.address" name="address" disabled></textarea>
+          <textarea *ngIf="isInserting && !isEditing" class="form-control" id="address3" rows="3" placeholder="Enter address" [(ngModel)]="newStudent!.address" name="address" ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="isEditing">Submit</button>
+      </div>
+        <button *ngIf="isInserting" type="submit" class="btn btn-primary" >Add Student</button>
+        <button *ngIf="isEditing" type="submit" class="btn btn-primary" >Edit Student</button>
+        <button *ngIf="isDeleting" type="submit" class="btn btn-primary" >Delete Student</button>
     </form>
 </div>

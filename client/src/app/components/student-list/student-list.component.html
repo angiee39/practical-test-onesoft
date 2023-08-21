@@ -11,9 +11,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let student of students" 
+            <tr *ngFor="let student of students"
                 (click)="onSelect(student)"
-                [ngClass]="{color: selectedStudent === student ? '.bg-success' : ''}">
+                [ngClass]="{ 'bg-success': selectedStudent === student }">
                 <td>{{ student.id }}</td>
                 <td>{{ student.firstName }}</td>
                 <td>{{ student.lastName }}</td>

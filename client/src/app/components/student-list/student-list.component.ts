@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { STUDENTS } from '../../mock-students';
 import { Student } from 'src/app/Student';
-import { StudentService } from 'src/app/services/student.service';
+import { SelectedStudentService } from 'src/app/services/selected-student.service';
+import {StudentDataService} from "../../services/student-data.service";
 @Component({
     selector: 'app-student-list',
     templateUrl: './student-list.component.html',
     styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-    students = STUDENTS;
+    studentDataService = new StudentDataService()
+    students = this.studentDataService.getStudents();
     selectedStudent: Student | null = null;
     dtOptions: any = {};
 
@@ -19,11 +20,15 @@ export class StudentListComponent implements OnInit {
         };
     }
 
-    constructor(private studentService: StudentService) {}
+    constructor(private studentService: SelectedStudentService) {}
 
     onSelect(student: Student): void {
-        console.log(student);
-        this.selectedStudent = (this.selectedStudent === student) ? null : student;
-        this.studentService.selectStudent(student);
+      if (this.selectedStudent === student) {
+        this.selectedStudent = null;
+        this.studentService.selectedStudent(null);
+      } else {
+        this.selectedStudent = student;
+        this.studentService.selectedStudent(student);
+      }
     }
 }

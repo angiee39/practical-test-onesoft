@@ -5,11 +5,11 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentService {
+export class SelectedStudentService {
   private selectedStudentSubject = new BehaviorSubject<Student | null>(null);
   selectedStudent$ = this.selectedStudentSubject.asObservable();
 
-  selectStudent(student: Student) {
+  selectedStudent(student: Student | null) {
     this.selectedStudentSubject.next(student);
   }
   constructor() { }
