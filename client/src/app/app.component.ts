@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Student } from './Student';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +7,4 @@ import { Student } from './Student';
 })
 export class AppComponent {
   title = 'client';
-
-  student: Student = {
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    email: '',
-    nic: '',
-    dateOfBirth: '',
-    address: ''
-  }; // Initialize with an empty student object
-  isEditing: boolean = true;
-
-  toggleEditMode() {
-    this.isEditing = !this.isEditing;
-  }
 }

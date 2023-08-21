@@ -9,6 +9,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { HeaderComponent } from './components/header/header.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MenuComponent } from './components/menu/menu.component';
     StudentListComponent,
     HeaderComponent,
     StudentDetailsComponent,
-    MenuComponent
+    MenuComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

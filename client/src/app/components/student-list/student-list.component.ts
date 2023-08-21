@@ -22,6 +22,7 @@ export class StudentListComponent implements OnInit {
     constructor(private studentService: StudentService) {}
 
     onSelect(student: Student): void {
+        console.log(student);
         this.selectedStudent = (this.selectedStudent === student) ? null : student;
         this.studentService.selectStudent(student);
     }

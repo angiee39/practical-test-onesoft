@@ -13,7 +13,7 @@
         <tbody>
             <tr *ngFor="let student of students" 
                 (click)="onSelect(student)"
-                [class.bg-primary]="selectedStudent === student ? 'blue' : ''">
+                [ngClass]="{color: selectedStudent === student ? '.bg-success' : ''}">
                 <td>{{ student.id }}</td>
                 <td>{{ student.firstName }}</td>
                 <td>{{ student.lastName }}</td>
