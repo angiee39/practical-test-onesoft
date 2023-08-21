@@ -37,12 +37,14 @@ export class StudentListComponent implements OnInit {
     }
 
     onSelect(student: Student): void {
+      const selectedStudent = this.selectedStudentService.getSelectedStudent();
+
       if (this.selectedStudent === student) {
         this.selectedStudent = null;
-        this.selectedStudentService.selectedStudent(null);
+        this.selectedStudentService.setSelectedStudent(null);
       } else {
         this.selectedStudent = student;
-        this.selectedStudentService.selectedStudent(student);
+        this.selectedStudentService.setSelectedStudent(student);
       }
     }
 }

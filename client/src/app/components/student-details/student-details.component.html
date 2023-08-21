@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="text-center">
-      <img src="..." class="rounded" alt="...">
+    <div class="text-center" style="margin: 20px;">
+      <img src="../../../assets/images/profile.png" class="rounded" alt="..." width="175" height="175">
     </div>
     <form>
       <div class="form-group row row-custom-css">
@@ -54,9 +54,9 @@
       <div class="form-group row row-custom-css">
         <label for="address" class="col-sm-4 col-form-label">Address:</label>
         <div class="col-sm-8">
-          <textarea *ngIf="isEditing" class="form-control" id="address" rows="3" placeholder="Enter address" [(ngModel)]="student!.address" name="address"></textarea>
-          <textarea *ngIf="!isEditing && !isInserting" class="form-control" id="address2" rows="3" placeholder="Enter address" [(ngModel)]="student!.address" name="address" disabled></textarea>
-          <textarea *ngIf="isInserting && !isEditing" class="form-control" id="address3" rows="3" placeholder="Enter address" [(ngModel)]="newStudent!.address" name="address" ></textarea>
+          <textarea *ngIf="isEditing" class="form-control" id="address" rows="2" placeholder="Enter address" [(ngModel)]="student!.address" name="address"></textarea>
+          <textarea *ngIf="!isEditing && !isInserting" class="form-control" id="address2" rows="2" placeholder="Enter address" [(ngModel)]="student!.address" name="address" disabled></textarea>
+          <textarea *ngIf="isInserting && !isEditing" class="form-control" id="address3" rows="2" placeholder="Enter address" [(ngModel)]="newStudent!.address" name="address" ></textarea>
         </div>
       </div>
         <button *ngIf="isInserting" type="submit" class="btn btn-primary" >Add Student</button>

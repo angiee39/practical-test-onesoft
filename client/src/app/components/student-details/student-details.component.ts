@@ -22,7 +22,7 @@ export class StudentDetailsComponent {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.studentService.selectedStudent(null);
+    this.studentService.setSelectedStudent(null);
   }
   @Input() isEditing: boolean = false;
   @Input() isInserting: boolean = false;

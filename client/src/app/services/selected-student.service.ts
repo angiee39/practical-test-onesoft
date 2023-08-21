@@ -9,8 +9,11 @@ export class SelectedStudentService {
   private selectedStudentSubject = new BehaviorSubject<Student | null>(null);
   selectedStudent$ = this.selectedStudentSubject.asObservable();
 
-  selectedStudent(student: Student | null) {
+  setSelectedStudent(student: Student | null) {
     this.selectedStudentSubject.next(student);
+  }
+  getSelectedStudent(): Student | null {
+    return this.selectedStudentSubject.value;
   }
   constructor() { }
 }
