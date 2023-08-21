@@ -20,4 +20,6 @@ public partial class Student
     public DateTime? DateOfBirth { get; set; }
 
     public string? Address { get; set; }
+
+    public string? ProfilePic { get; set; }
 }

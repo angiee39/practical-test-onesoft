@@ -18,7 +18,7 @@ public partial class StudentsContext : DbContext
     public virtual DbSet<Student> Students { get; set; }
 
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //    => optionsBuilder.UseSqlServer("Server=ANJALA-PC\\SQLEXPRESS;Database=students;Trusted_Connection=True; Encrypt=False");
+    //    => optionsBuilder.UseSqlServer("Server=ANJALA-PC\\SQLEXPRESS;Database=students;Trusted_Connection=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,6 +54,10 @@ public partial class StudentsContext : DbContext
                 .HasMaxLength(20)
                 .IsFixedLength()
                 .HasColumnName("nic");
+            entity.Property(e => e.ProfilePic)
+                .HasMaxLength(50)
+                .IsFixedLength()
+                .HasColumnName("profile_pic");
         });
 
         OnModelCreatingPartial(modelBuilder);
