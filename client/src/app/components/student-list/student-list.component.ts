@@ -13,12 +13,14 @@ export class StudentListComponent implements OnInit {
 
     constructor(private selectedStudentService: SelectedStudentService, private studentDataService: StudentDataService) {}
 
-    students = STUDENTS;
-    // students: any[] = [];
+    // students = STUDENTS;
+    students: any[] = [];
     selectedStudent: Student | null = null;
+    profilePicEmpty: string = "../../../assets/images/profile_empty.png";
     dtOptions: any = {};
 
     ngOnInit(): void {
+        this.loadStudents();
         this.dtOptions = {
             pagingType: 'full_numbers',
             pageLength: 5
@@ -37,7 +39,7 @@ export class StudentListComponent implements OnInit {
     }
 
     onSelect(student: Student): void {
-      const selectedStudent = this.selectedStudentService.getSelectedStudent();
+      // const selectedStudent = this.selectedStudentService.getSelectedStudent();
 
       if (this.selectedStudent === student) {
         this.selectedStudent = null;
@@ -46,5 +48,7 @@ export class StudentListComponent implements OnInit {
         this.selectedStudent = student;
         this.selectedStudentService.setSelectedStudent(student);
       }
+
+      console.log(this.selectedStudentService.getSelectedStudent());
     }
 }

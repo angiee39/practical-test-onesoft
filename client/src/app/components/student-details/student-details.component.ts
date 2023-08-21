@@ -11,7 +11,8 @@ import { Subscription } from 'rxjs';
 export class StudentDetailsComponent {
 
   student: Student | null = null;
-  newStudent: Student = {address: "", dateOfBirth: "", email: "", firstName: "", lastName: "", mobile: "", nic: ""}
+  newStudent: Student = {id: 0, address: "", dateOfBirth: "", email: "", firstName: "", lastName: "", mobile: "", nic: ""};
+  profilePicEmpty: string = "../../../assets/images/profile_empty.png";
   private subscription: Subscription;
 
   constructor(private studentService: SelectedStudentService) {
@@ -27,5 +28,19 @@ export class StudentDetailsComponent {
   @Input() isEditing: boolean = false;
   @Input() isInserting: boolean = false;
   @Input() isDeleting: boolean = false;
+
+  addStudent() {
+
+  }
+
+  deleteStudent() {
+
+  }
+
+
+  editStudent() {
+
+  }
+
 
 }

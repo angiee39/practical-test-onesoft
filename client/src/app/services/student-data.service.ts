@@ -9,11 +9,11 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class StudentDataService {
-  private baseURL = 'https://shorturl.at/api/getStudents';
-  private getStudentsURL = this.baseURL + '/getStudents'
-  private addStudentUrl = '';
-  private updateStudentUrl = '';
-  private deleteStudentUrl = '';
+  private baseURL = "https://localhost:7202/api/";
+  private getStudentsURL = this.baseURL + 'Students';
+  private addStudentUrl = this.baseURL + 'Students';
+  private updateStudentUrl = this.baseURL + 'Students/';
+  private deleteStudentUrl = this.baseURL + 'Students/';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,14 +22,15 @@ export class StudentDataService {
   constructor(private http: HttpClient) {}
 
   updateStudent(student: Student): Observable<any> {
+    let url = this.updateStudentUrl + student.id.toString();
     return this.http.put(this.updateStudentUrl, student, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateHero'))
     );
   }
 
   deleteStudent(id: number): Observable<Student> {
-  
-    return this.http.delete<Student>(this.deleteStudentUrl, this.httpOptions).pipe(
+    let url = this.deleteStudentUrl + id.toString();
+    return this.http.delete<Student>(url, this.httpOptions).pipe(
       catchError(this.handleError<Student>('deleteHero'))
     );
   }

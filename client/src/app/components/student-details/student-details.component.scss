@@ -6,17 +6,19 @@
     border-color: black;
     border-radius: 5px;
     width: 410px;
-    height: 575px;
+    height: 600px;
 }
 
-//.row {
-//  border: 1px;
-//  border-style: solid;
-//  border-bottom: black;
-//}
+.circle {
+    height: 170px;
+    width: 170px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
 
 .row-custom-css {
-  display: flex;
+  margin: 5px;
 }
 
 #profile-pic {

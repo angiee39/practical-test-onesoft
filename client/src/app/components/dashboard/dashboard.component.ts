@@ -8,23 +8,27 @@ import { Student } from 'src/app/Student';
 })
 export class DashboardComponent {
   newStudent: Student = {
+    id: 0,
     firstName: '',
     lastName: '',
     mobile: '',
     email: '',
     nic: '',
     dateOfBirth: '',
-    address: ''
+    address: '',
+    profilePic: ''
   }
 
   student: Student = {
+    id: 0,
     firstName: '',
     lastName: '',
     mobile: '',
     email: '',
     nic: '',
     dateOfBirth: '',
-    address: ''
+    address: '',
+    profilePic: ''
   }
   isEditing: boolean = false;
   isInserting: boolean = false;
