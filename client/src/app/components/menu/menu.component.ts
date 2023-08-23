@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import {SelectedStudentService} from "../../services/selected-student.service";
+import {StudentService} from "../../services/student.service";
 
 @Component({
   selector: 'app-menu',
@@ -11,11 +11,11 @@ export class MenuComponent {
   @Output() toggleInsert = new EventEmitter<void>
   @Output() toggleDelete = new EventEmitter<void>();
 
-  constructor(private selectedStudentService: SelectedStudentService) {
+  constructor(private studentService: StudentService) {
   }
   toggleEditMode() {
-    const selectedStudent = this.selectedStudentService.getSelectedStudent();
-    if (selectedStudent === null) {
+    const selectedStudent = this.studentService.formData;
+    if (selectedStudent.id === 0) {
       window.alert('Select a student to edit!');
     } else {
       this.toggleEdit.emit();
@@ -27,8 +27,8 @@ export class MenuComponent {
   }
 
   toggleDeleteMode() {
-    const selectedStudent = this.selectedStudentService.getSelectedStudent();
-    if (selectedStudent === null) {
+    const selectedStudent = this.studentService.formData;
+    if (selectedStudent.id === 0) {
       window.alert('Select a student to delete!');
     } else {
       this.toggleDelete.emit();

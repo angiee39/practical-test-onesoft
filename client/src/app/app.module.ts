@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     BrowserModule,
     DataTablesModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent]

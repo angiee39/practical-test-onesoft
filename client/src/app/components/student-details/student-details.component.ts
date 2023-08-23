@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Student } from 'src/app/student.model';
-import { SelectedStudentService } from 'src/app/services/selected-student.service';
-import { Subscription } from 'rxjs';
-import { StudentDataService } from 'src/app/services/student-data.service';
+import { StudentService } from 'src/app/services/student.service';
+import { ToastrService } from 'ngx-toastr';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-student-details',
@@ -14,36 +14,60 @@ export class StudentDetailsComponent {
   student: Student | null = null;
   newStudent: Student = new Student();
   profilePicEmpty: string = "../../../assets/images/profile_empty.png";
-  private subscription: Subscription;
 
-  constructor(private selectedStudentService: SelectedStudentService, private studentDataService: StudentDataService) {
-    this.subscription = this.selectedStudentService.selectedStudent$.subscribe(student => {
-      this.student = student;
-    });
+  constructor(public studentService: StudentService, private toastr: ToastrService) {
+
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.selectedStudentService.setSelectedStudent(null);
-  }
   @Input() isEditing: boolean = false;
   @Input() isInserting: boolean = false;
   @Input() isDeleting: boolean = false;
 
-  addStudent() {
-    this.studentDataService.postStudent().subscribe();
+  onSubmit(form: NgForm) {
+    this.studentService.formSubmitted = true
+    if (form.valid) {
+      if (this.studentService.formData.id == 0)
+        this.addStudent(form)
+      else
+        this.editStudent(form)
+    }
+  }
+  addStudent(form: NgForm) {
+    this.studentService.postStudent().subscribe(
+      {
+        next: res => {
+          this.studentService.list = res as Student[]
+          this.studentService.resetForm(form)
+          this.toastr.success('Added successfully', 'Student Registration')
+        },
+        error: err => { console.log(err) }
+      }
+    );
   }
 
-  deleteStudent() {
-    if (this.student === null) return;
-    this.studentDataService.deleteStudent(this.student.id).subscribe();
+  deleteStudent(id: number) {
+    if (confirm('Are you sure to delete this record?'))
+      this.studentService.deleteStudent(id)
+        .subscribe({
+          next: res => {
+            this.studentService.list = res as Student[]
+            this.toastr.error('Deleted successfully', 'Student Registration')
+          },
+          error: err => { console.log(err) }
+        })
   }
 
 
-  editStudent() {
-    if (this.student === null) return;
-    this.studentDataService.putStudent().subscribe();
+  editStudent(form: NgForm) {
+    this.studentService.putStudent().subscribe(
+      {
+        next: res => {
+          this.studentService.list = res as Student[]
+          this.studentService.resetForm(form)
+          this.toastr.success('Updated successfully', 'Student Registration')
+        },
+        error: err => { console.log(err) }
+      }
+    );
   }
-
-
 }

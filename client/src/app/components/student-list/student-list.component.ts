@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/student.model';
-import { SelectedStudentService } from 'src/app/services/selected-student.service';
-import {StudentDataService} from "../../services/student-data.service";
-import { HttpClient } from '@angular/common/http';
+import {StudentService} from "../../services/student.service";
 import { STUDENTS } from 'src/app/mock-students';
 @Component({
     selector: 'app-student-list',
@@ -11,12 +9,9 @@ import { STUDENTS } from 'src/app/mock-students';
 })
 export class StudentListComponent implements OnInit {
 
-    constructor(private selectedStudentService: SelectedStudentService,
-      public studentDataService: StudentDataService) {}
+    constructor(public studentService: StudentService) {}
 
-    students = STUDENTS;
-    // students: any[] = [];
-    selectedStudent: Student | null = null;
+    // students = STUDENTS;
     profilePicEmpty: string = "../../../assets/images/profile_empty.png";
     dtOptions: any = {};
 
@@ -29,18 +24,16 @@ export class StudentListComponent implements OnInit {
     }
 
     loadStudents(): void {
-      this.studentDataService.getStudents();
+      this.studentService.getStudents();
     }
 
     onSelect(student: Student): void {
-      if (this.selectedStudent === student) {
-        this.selectedStudent = null;
-        this.selectedStudentService.setSelectedStudent(null);
+      if (this.studentService.formData === student) {
+        this.studentService.formData = new Student();
       } else {
-        this.selectedStudent = student;
-        this.selectedStudentService.setSelectedStudent(student);
+        this.studentService.formData = student;
       }
 
-      console.log(this.selectedStudentService.getSelectedStudent());
+      console.log(this.studentService.formData);
     }
 }

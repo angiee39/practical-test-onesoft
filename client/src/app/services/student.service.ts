@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import {STUDENTS} from "../mock-students";
 import {Student} from "../student.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import {environment} from "../../environments/environment.development";
 import {NgForm} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
 })
-export class StudentDataService {
+export class StudentService {
   private baseUrl = environment.apiBaseUrl;
   private getUrl = this.baseUrl + 'Students';
   private postUrl = this.baseUrl + 'Students';

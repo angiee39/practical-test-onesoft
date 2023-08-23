@@ -7,5 +7,5 @@ export class Student {
   nic: string = '';
   dateOfBirth: string = '';
   address: string = '';
-  profilePic?: string;
+  profilePic: string = '';
 }
