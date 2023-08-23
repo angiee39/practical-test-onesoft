@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let student of students"
+            <tr *ngFor="let student of studentDataService.list"
                 (click)="onSelect(student)"
                 [ngStyle]="{'font-weight':selectedStudent === student ? 'bold' : 'normal' }">
                 <td>{{ student.id }}</td>

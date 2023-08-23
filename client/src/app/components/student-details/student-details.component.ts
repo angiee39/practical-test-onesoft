@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Student } from 'src/app/Student';
+import { Student } from 'src/app/student.model';
 import { SelectedStudentService } from 'src/app/services/selected-student.service';
 import { Subscription } from 'rxjs';
 import { StudentDataService } from 'src/app/services/student-data.service';
@@ -12,7 +12,7 @@ import { StudentDataService } from 'src/app/services/student-data.service';
 export class StudentDetailsComponent {
 
   student: Student | null = null;
-  newStudent: Student = {id: 0, address: "", dateOfBirth: "", email: "", firstName: "", lastName: "", mobile: "", nic: ""};
+  newStudent: Student = new Student();
   profilePicEmpty: string = "../../../assets/images/profile_empty.png";
   private subscription: Subscription;
 
@@ -31,7 +31,7 @@ export class StudentDetailsComponent {
   @Input() isDeleting: boolean = false;
 
   addStudent() {
-    this.studentDataService.addStudent(this.newStudent).subscribe();
+    this.studentDataService.postStudent().subscribe();
   }
 
   deleteStudent() {
@@ -42,7 +42,7 @@ export class StudentDetailsComponent {
 
   editStudent() {
     if (this.student === null) return;
-    this.studentDataService.updateStudent(this.student).subscribe();
+    this.studentDataService.putStudent().subscribe();
   }
 
 

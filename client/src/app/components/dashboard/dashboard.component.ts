@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Student } from 'src/app/Student';
+import { Student } from 'src/app/student.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,29 +7,9 @@ import { Student } from 'src/app/Student';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  newStudent: Student = {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    email: '',
-    nic: '',
-    dateOfBirth: '',
-    address: '',
-    profilePic: ''
-  }
+  newStudent: Student = new Student();
+  student: Student = new Student();
 
-  student: Student = {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    email: '',
-    nic: '',
-    dateOfBirth: '',
-    address: '',
-    profilePic: ''
-  }
   isEditing: boolean = false;
   isInserting: boolean = false;
   isDeleting: boolean = false;

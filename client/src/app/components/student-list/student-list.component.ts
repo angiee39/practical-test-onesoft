@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from 'src/app/Student';
+import { Student } from 'src/app/student.model';
 import { SelectedStudentService } from 'src/app/services/selected-student.service';
 import {StudentDataService} from "../../services/student-data.service";
 import { HttpClient } from '@angular/common/http';
@@ -11,8 +11,8 @@ import { STUDENTS } from 'src/app/mock-students';
 })
 export class StudentListComponent implements OnInit {
 
-    constructor(private selectedStudentService: SelectedStudentService, 
-      private studentDataService: StudentDataService) {}
+    constructor(private selectedStudentService: SelectedStudentService,
+      public studentDataService: StudentDataService) {}
 
     // students = STUDENTS;
     students: any[] = [];
@@ -29,8 +29,7 @@ export class StudentListComponent implements OnInit {
     }
 
     loadStudents(): void {
-      this.studentDataService.getStudents()
-    .subscribe(students => this.students = students);
+      this.studentDataService.getStudents();
     }
 
     onSelect(student: Student): void {
