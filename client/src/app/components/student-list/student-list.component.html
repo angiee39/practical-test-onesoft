@@ -1,4 +1,4 @@
-<div class="container">
+<div class="border p-3">
     <table datatable [dtOptions]="dtOptions" class="table table-striped">
         <thead>
             <tr>
@@ -12,9 +12,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let student of studentDataService.list"
+            <!-- <tr *ngFor="let student of studentDataService.list" -->
+                <tr *ngFor="let student of students"
                 (click)="onSelect(student)"
-                [ngStyle]="{'font-weight':selectedStudent === student ? 'bold' : 'normal' }">
+                [ngClass]="[selectedStudent === student ? 'table-success' : '' ]">
                 <td>{{ student.id }}</td>
                 <td>{{ student.firstName }}</td>
                 <td>{{ student.lastName }}</td>
@@ -26,3 +27,4 @@
         </tbody>
     </table>
 </div>
+

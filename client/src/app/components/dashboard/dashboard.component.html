@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="header">
       <app-header></app-header>
       <app-menu (toggleEdit)="toggleEditMode()" (toggleInsert)="toggleInsertMode()" (toggleDelete)="toggleDeleteMode()"></app-menu>
@@ -6,6 +6,18 @@
     <div class="body">
       <app-student-list></app-student-list>
       <app-student-details [isEditing]="isEditing" [isInserting]="isInserting" [isDeleting]="isDeleting" [(ngModel)]="newStudent"></app-student-details>
-      <!-- <app-insert-student></app-insert-student> -->
+    </div>
+  </div> -->
+
+  <div class="bg-body-secondary text-center py-3 rounded-2">
+    <h1 class="dispay-6 fw-bold">Student Registration System</h1>
+  </div>
+  <div class="row mt-5">
+    <div class="col-8">
+      <app-student-list />
+      <app-menu (toggleEdit)="toggleEditMode()" (toggleInsert)="toggleInsertMode()" (toggleDelete)="toggleDeleteMode()"></app-menu>
+    </div>
+    <div class="col-auto border p-2">
+      <app-student-details [isEditing]="isEditing" [isInserting]="isInserting" [isDeleting]="isDeleting" [(ngModel)]="newStudent" />
     </div>
   </div>

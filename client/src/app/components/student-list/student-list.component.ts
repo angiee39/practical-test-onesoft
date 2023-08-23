@@ -14,8 +14,8 @@ export class StudentListComponent implements OnInit {
     constructor(private selectedStudentService: SelectedStudentService,
       public studentDataService: StudentDataService) {}
 
-    // students = STUDENTS;
-    students: any[] = [];
+    students = STUDENTS;
+    // students: any[] = [];
     selectedStudent: Student | null = null;
     profilePicEmpty: string = "../../../assets/images/profile_empty.png";
     dtOptions: any = {};
