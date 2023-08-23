@@ -11,7 +11,8 @@ import { STUDENTS } from 'src/app/mock-students';
 })
 export class StudentListComponent implements OnInit {
 
-    constructor(private selectedStudentService: SelectedStudentService, private studentDataService: StudentDataService) {}
+    constructor(private selectedStudentService: SelectedStudentService, 
+      private studentDataService: StudentDataService) {}
 
     // students = STUDENTS;
     students: any[] = [];
@@ -28,19 +29,11 @@ export class StudentListComponent implements OnInit {
     }
 
     loadStudents(): void {
-      this.studentDataService.getStudents().subscribe(
-        (data: any) => {
-          this.students = data;
-        },
-        (error: any) => {
-          console.error('Error fetching students:', error);
-        }
-      );
+      this.studentDataService.getStudents()
+    .subscribe(students => this.students = students);
     }
 
     onSelect(student: Student): void {
-      // const selectedStudent = this.selectedStudentService.getSelectedStudent();
-
       if (this.selectedStudent === student) {
         this.selectedStudent = null;
         this.selectedStudentService.setSelectedStudent(null);
