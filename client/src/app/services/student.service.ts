@@ -15,7 +15,8 @@ export class StudentService {
   private putUrl = this.baseUrl + 'Students/';
   private deleteUrl = this.baseUrl + 'Students/';
 
-  list: Student[] = [];
+  // list: Student[] = [];
+  list: Student[] = STUDENTS;
   formData: Student = new Student();
   formSubmitted: boolean = false;
 

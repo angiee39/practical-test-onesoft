@@ -32,7 +32,6 @@ export const STUDENTS: Student[] = [
       nic: '555555555Z',
       dateOfBirth: '1993-11-10',
       address: '789 Oak St, Village',
-      profilePic: ''
     },
     {
       id: 4,
@@ -54,7 +53,6 @@ export const STUDENTS: Student[] = [
       nic: '222333444B',
       dateOfBirth: '1994-03-18',
       address: '567 Pine St, Hamlet',
-      profilePic: ''
     },
     {
         id: 6,
@@ -65,7 +63,7 @@ export const STUDENTS: Student[] = [
         nic: '111222333C',
         dateOfBirth: '1996-09-12',
         address: '789 Willow St, Village',
-      profilePic: '../../../assets/images/profile.png'
+        profilePic: '../../../assets/images/profile.png'
       },
       {
         id: 7,
@@ -76,7 +74,6 @@ export const STUDENTS: Student[] = [
         nic: '444555666D',
         dateOfBirth: '1995-12-03',
         address: '123 Oak St, Suburb',
-        profilePic: ''
       },
       {
         id: 8,
@@ -98,7 +95,6 @@ export const STUDENTS: Student[] = [
         nic: '222111444F',
         dateOfBirth: '1998-04-25',
         address: '789 Willow St, Mountains',
-        profilePic: ''
       },
       {
         id: 10,
@@ -109,7 +105,6 @@ export const STUDENTS: Student[] = [
         nic: '333555777G',
         dateOfBirth: '1997-11-30',
         address: '567 River St, Meadow',
-        profilePic: ''
       }
   ];
 

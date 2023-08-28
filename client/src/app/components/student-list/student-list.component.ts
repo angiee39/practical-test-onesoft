@@ -32,6 +32,7 @@ export class StudentListComponent implements OnInit {
         this.studentService.formData = new Student();
       } else {
         this.studentService.formData = student;
+        // this.studentService.formData = Object.assign({}, student);
       }
 
       console.log(this.studentService.formData);

@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import {StudentService} from "../../services/student.service";
+import { Student } from 'src/app/student.model';
 
 @Component({
   selector: 'app-menu',
@@ -23,6 +24,7 @@ export class MenuComponent {
   }
 
   toggleInsertMode() {
+    this.studentService.formData = new Student();
     this.toggleInsert.emit();
   }
 
